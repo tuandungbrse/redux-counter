@@ -1,16 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
-import Counter from "./Counter";
+import CounterContainer from "./Counter";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 const Application = () => {
   return (
     <main className="Application">
       <section className="Counters">
-        <Counter />
+        <CounterContainer />
       </section>
     </main>
   );
 };
 
-ReactDOM.render(<Application />, document.getElementById("root"));
+ReactDOM.render(
+  <Provider store={store}>
+    <Application />
+  </Provider>,
+  document.getElementById("root")
+);
